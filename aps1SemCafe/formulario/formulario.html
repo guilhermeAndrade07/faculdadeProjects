@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saiba Mais...</title>
+    <link rel="shortcut icon" href="../imagens/Lid´s.png" type="image/x-icon">
+    <link rel="stylesheet" href="formulario.css">
+</head>
+<body>
+    <header>
+        <h1>Saiba Mais</h1>
+    </header>
+    <nav>
+        <a href="../index.html">Inicio</a>
+        <a href="../plantio/plantio.html">Plantio</a>
+        <a href="../fertilizante/fertilizante.html">Fertilizantes</a>
+        <a href="../historia/historia.html">História</a>
+    </nav>
+    <main>
+        <h2> Tem interesse em começar <br> o seu próprio plantio de café?</h2>
+        <h4>Preencha seus dados e dê o primeiro passo <br> rumo à novidade que vai transformar sua vida!</h4>
+        <section class="form-conteiner">
+            <form action="../index.html" method="post" autocomplete="on" id="meuFormulario">
+                <div class="dados">
+                    <label for="inome">Nome completo: </label> <br>
+                    <input type="text" name="nome" id="inome" placeholder="Digite seu nome" required>
+                </div>
+                <div class="dados">
+                    <label for="iemail">Email: </label> <br>
+                    <input type="email" name="email" id="iemail" placeholder="Digite seu email" required>
+                </div>
+                <div class="dados">
+                    <label for="itel">Telefone: </label> <br>
+                    <input type="tel" name="tel" id="telefone" placeholder="(00) 00000-0000" required minlength="10" maxlength="15">
+                </div>
+                <div class="button">
+                    <input type="submit" value="enviar" onclick="enviar()">
+                </div>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy Lid´s Coffee por André Porto, Guilherme Morais e Henrick de Almeida</p>
+    </footer>
+    <script>
+        document.getElementById('meuFormulario').addEventListener('submit', function(e) {
+            const campos = this.querySelectorAll('[required]');
+            let formularioValido = true;
+
+        campos.forEach(function(campo) {
+            if (!campo.value.trim()) {
+            formularioValido = false;
+            campo.style.border = '1px solid red';
+        } else {
+        campo.style.border = '';
+        }
+        });
+
+        if (!formularioValido) {
+            e.preventDefault(); // Impede envio
+            window.alert('Por favor, preencha todos os campos obrigatórios.');
+        } else {
+            window.alert('Formulário enviado com sucesso!');
+            // O formulário será enviado normalmente após o alert
+        }   
+        });
+
+        const telefone = document.getElementById('telefone');
+
+        telefone.addEventListener('input', function(e) {
+            let valor = telefone.value.replace(/\D/g, ''); // Remove tudo que não for número
+
+            if (valor.length > 11) valor = valor.slice(0, 11); // Limita a 11 dígitos
+
+            // Formata para o padrão (00) 00000-0000
+            let formatado = valor;
+
+            if (valor.length > 0) formatado = `(${valor.slice(0, 2)}`;
+            if (valor.length >= 3) formatado += `) ${valor.slice(2, 7)}`;
+            if (valor.length >= 8) formatado += `-${valor.slice(7, 11)}`;
+
+            telefone.value = formatado;
+        });
+    </script>
+
+</body>
+</html>
