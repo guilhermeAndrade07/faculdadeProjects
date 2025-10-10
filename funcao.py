@@ -74,3 +74,37 @@
 # print(f"Saldo inicial: R${saldo_inicial}")
 # valor_saque = float(input("Digite o valor para saque: "))
 # saldo_inicial = sacar(valor_saque, saldo_inicial)
+
+
+# def somar(a, b):
+#     print(f"A soma de {a} + {b} = {a+b}")
+#     
+# def subtrair(a, b):
+#     print(f"A subtração de {a} - {b} = {a-b}")
+# 
+# def multiplicar(a, b):
+#     print(f"A multiplicação de {a} * {b} = {a*b}")
+# 
+# def divisao(a, b):
+#     print(f"A divisão de {a} / {b} = {a/b}")
+# 
+# while True: 
+#     print("\n-- CALCULADORA --")
+#     operacao = int(input("Selecione qual operação você quer realizar: 1-Soma 2-Subtração 3-Multiplicação 4-Divisão \n"))
+#     valorA = int(input("Digite o valor de A: "))
+#     valorB = int(input("Digite o valor de B: "))
+# 
+#     if operacao == 1:
+#         somar(valorA,valorB)
+#     elif operacao == 2:
+#         subtrair(valorA,valorB)
+#     elif operacao == 3:
+#         multiplicar(valorA,valorB)
+#     elif operacao == 4:
+#         divisao(valorA,valorB)
+#     else:
+#         print("Operação Inexistente, tente novamente!!")
+# 
+#     cont = input("Deseja continuar? (sim/não)\n").lower()
+#     if cont == "não":
+#         break
