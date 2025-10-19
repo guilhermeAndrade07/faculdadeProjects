@@ -3,7 +3,7 @@
     "builds": [
         {
         "src": "./templates/index.html",
-        "use": "@vercel/static"
+        "use": "@vercel/python"
         }
     ],
     "routes": [
